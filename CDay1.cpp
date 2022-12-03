@@ -1,6 +1,7 @@
 
 #include "CDay1.h"
 #include <iostream>
+#include <algorithm>
 
 
 #include "CFileRead.h"
@@ -37,7 +38,7 @@ CCalorie::~CCalorie()
 
 CDay1::CDay1()
 {
-    CFileRead dataRead("D:\\nayan\\docs\\AOC\\AOC2022\\day1.txt");
+    CFileRead dataRead("day1.txt");
     dataRead.readFromFile();
 
     CProcessData processData(dataRead.getMData());
@@ -76,18 +77,19 @@ unsigned int CDay1::calculateHighestCalories()
     }
 
     // task 1 output
-    auto iter = totalCalories.end();
-    unsigned int sum = 0;
-    do
+    int sum = 0;
+    for(int idx = -3 ; idx < 0; idx++)
     {
-        if(sum == 0)
-        {
-            cout << "Highest calories is: " <<  *iter << endl;
-        }
-        
-        iter = iter -3;
-    }while(iter != totalCalories.end())
+    	sum = sum + *std::next(totalCalories.end(), idx);
+
+    	if(idx == -1)
+    	{
+    		cout << "The elf with Highest Calorie is: " << *std::next(totalCalories.end(), idx) << endl;
+    	}
+    }
     
+    cout << "The total calorie of tops 3 elf is: " << sum<< endl;
+
 
     return 0;
 }
