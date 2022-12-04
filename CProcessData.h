@@ -22,11 +22,9 @@ private:
 	std::vector<int> m_result;
 	std::vector<std::string> m_resultstr;
 
-
 public:
 	CProcessData(std::string data = "");
 	void getLineWithSeperator(char sep);
-
 	void print();
 	virtual ~CProcessData();
 	const std::string& getMData() const;
