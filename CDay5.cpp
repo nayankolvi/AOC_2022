@@ -151,7 +151,7 @@ void CDay5::task2()
 		output = output + move.second.getMStack().front();
 	}
 
-	cout << "Output of second Task is: " << output;
+	cout << "Output of second Task is: " << output << endl;
 }
 
 
